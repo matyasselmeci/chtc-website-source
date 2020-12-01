@@ -12,7 +12,7 @@ commitmessage=$(mktemp)
 trap 'rm -f "$commitmessage"' EXIT
 
 if [[ $GITHUB_ACTIONS != true || $GITHUB_EVENT_NAME != pull_request ]]; then
-    git log -1 --pretty=format:"GHA $GITHUB_RUN_ID: \"%s\" by %an [%h] pushed to GitHub Pages
+    git log -1 --pretty=format:"GHA $GITHUB_RUN_NUMBER: \"%s\" by %an [%h] pushed to GitHub Pages
 
 %b" > "$commitmessage"
 
