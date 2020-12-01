@@ -2,11 +2,11 @@
 set -x
 set -e
 
-: ${BRANCH:=master}
-: ${TARGET_REPO=CHTC/chtc.github.io.git}
+: "${BRANCH:=master}"
+: "${TARGET_REPO=CHTC/chtc.github.io.git}"
 JEKYLL_OUTPUT_FOLDER=_site
 
-echo "$TRAVIS_PULL_REQUEST"
+echo "$GITHUB_EVENT_NAME"
 
 commitmessage=$(mktemp)
 trap 'rm -f "$commitmessage"' EXIT
