@@ -25,9 +25,9 @@ jobs:
           ./script/cideploy
         env:
           #NO_PUSH: 1
-          TARGET_REPO: matyasselmeci/chtc.github.io.git
+          TARGET_REPO: matyasselmeci/chtc.github.io
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
+        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'matyasselmeci' }}
         #if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
         name: Deploy web pages on merge/push
 
