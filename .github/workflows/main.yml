@@ -1,7 +1,7 @@
 name: Build/deploy web pages
 on:
   push:
-    branches: [master,"pr/gha"]
+    branches: [master]
   pull_request:
     branches: [master,"pr/gha"]
 jobs:
@@ -27,7 +27,8 @@ jobs:
           NO_PUSH: 1
           TARGET_REPO: matyasselmeci/chtc.github.io.git
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        if: ${{ github.event_name != 'pull_request' }}
+        if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
+        #if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
         name: Deploy web pages on merge/push
 
 # vim:ft=yaml:sw=2:sts=2
