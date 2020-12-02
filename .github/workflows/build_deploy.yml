@@ -3,7 +3,7 @@ on:
   push:
     branches: [master]
   pull_request:
-    branches: [master,"pr/gha"]
+    branches: [master]
 jobs:
   build-and-maybe-deploy:
     runs-on: ubuntu-18.04
@@ -24,7 +24,7 @@ jobs:
           ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
           ./script/cideploy
         env:
-          NO_PUSH: 1
+          #NO_PUSH: 1
           TARGET_REPO: matyasselmeci/chtc.github.io.git
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         if: ${{ github.event_name != 'pull_request' && github.repository_owner == 'CHTC' }}
